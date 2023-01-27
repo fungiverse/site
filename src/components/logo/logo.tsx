@@ -4,20 +4,31 @@ import {
   Text3D,
   useMatcapTexture,
 } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import { useRef } from 'react';
+import { MathUtils } from 'three';
 
 export default function Logo() {
   const [texture] = useMatcapTexture(`2E763A_78A0B7_B3D1CF_14F209`, 256);
+  const logo = useRef();
+
+  useFrame((state, delta) => {
+    const { current } = logo;
+
+    if (current) {
+      current.rotation.y += MathUtils.degToRad(delta * 10);
+    }
+  });
 
   return (
     <>
-      {/* <color args={[1, 1, 1]} attach={`background`} /> */}
       <ambientLight intensity={3} color={`white`} />
-      <OrbitControls makeDefault />
+      {/* <OrbitControls makeDefault /> */}
 
-      <Center>
+      <Center ref={logo}>
         <Text3D
           font="/fonts/helvetiker_regular.typeface.json"
-          size={2.75}
+          size={2.5}
           height={0.4}
           curveSegments={8}
         >
