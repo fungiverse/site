@@ -1,16 +1,11 @@
-import {
-  Center,
-  OrbitControls,
-  Text3D,
-  useMatcapTexture,
-} from '@react-three/drei';
+import { Center, Text3D, useMatcapTexture } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
-import { MathUtils } from 'three';
+import { MathUtils, Mesh } from 'three';
 
 export default function Logo() {
   const [texture] = useMatcapTexture(`2E763A_78A0B7_B3D1CF_14F209`, 256);
-  const logo = useRef();
+  const logo = useRef<Mesh>();
 
   useFrame((state, delta) => {
     const { current } = logo;
@@ -23,7 +18,6 @@ export default function Logo() {
   return (
     <>
       <ambientLight intensity={3} color={`white`} />
-      {/* <OrbitControls makeDefault /> */}
 
       <Center ref={logo}>
         <Text3D
@@ -34,7 +28,6 @@ export default function Logo() {
         >
           fungiverse
           <meshMatcapMaterial matcap={texture} />
-          {/* <MeshWobbleMaterial factor={0.1} speed={1} color={`red`} /> */}
         </Text3D>
       </Center>
     </>
