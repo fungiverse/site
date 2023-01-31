@@ -31,18 +31,20 @@ export default function Home() {
           The humans are dead! Long live the fungi!
         </h2>
 
-        <p className={styles.description}>
-          The humans destroyed earth, everything is dead... or is it? The fungi
-          take over and you can create your own world or explore the worlds of
-          others.
-        </p>
-
-        <p className={styles.description}>
-          The goal is to provide tools that can be used to create an infinite
-          number of generative fungi-worlds to build a metaverse on {` `}
-          <a href="https://tezos.com/">Tezos</a>. You can follow the open
-          process in various formats:
-        </p>
+        <div className={styles.description}>
+          <p>
+            The humans destroyed earth, everything is dead... or is it? The
+            fungi take over and you can create your own world or explore the
+            worlds of others.
+          </p>
+          <p>
+            In the near future, fungiverse will be a{` `}
+            <a href="https://en.wikipedia.org/wiki/Fungus">fungi</a>-metaverse
+            on <a href="https://tezos.com/">Tezos</a>. NERDDISCO is creating
+            this from scratch and you can follow the process via this website
+            and via:
+          </p>
+        </div>
 
         <div className={styles.grid}>
           <a href="https://github.com/fungiverse/site" className={styles.card}>
